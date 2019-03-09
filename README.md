@@ -33,23 +33,20 @@ func Fuzz(data []byte) int {
   }
   return 1
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
-```
+```sh
+go get -u github.com/dvyukov/go-fuzz/...
+
+go get -d github.com/dvyukov/go-fuzz-corpus
+cd $GOPATH/src/github.com/dvyukov/go-fuzz-corpus
+cd png
+go-fuzz-build
+
+go-fuzz
+
+go-fuzz -workdir=examples/png -coordinator=127.0.0.1:8745
+go-fuzz -bin=./png-fuzz.zip -worker=127.0.0.1:8745 -procs=10
 ```
 
 ```
